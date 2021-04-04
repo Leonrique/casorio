@@ -1,0 +1,35 @@
+* {
+  margin: 2px;
+  background-color: rgb(245,151,148);
+}
+
+.bg {
+  /* The image used */
+  /* background-image: url('~src/assets/GabrielMeninoComAparelho.jpg'); */
+  
+  /* Full height */
+  /* height: 400px; 
+  width: 400px;
+  align-items: center;
+  align-self: center;
+  align-content: center; */
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; */
+}
+
+.main-pic{
+  width: 30%;  
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
