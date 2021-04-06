@@ -9,7 +9,7 @@ body {
   background-position: 50% 50%; */
 }
 
-.bg {
+.alinhar {
   text-align: center;
   margin: 0 auto;
 }
@@ -65,7 +65,7 @@ ul {
   position: relative;
   margin: 50px auto;
   width: 100%;
-  padding: 0;
+  /* padding: 0; */
   list-style: none;
   text-align: center;
   text-transform: uppercase;

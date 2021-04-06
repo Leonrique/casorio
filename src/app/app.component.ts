@@ -15,7 +15,7 @@ export class AppComponent {
   itemsCollection: AngularFirestoreCollection<Item>;
   
   item: Item ={
-    who: '', item: ''
+    id: '', who: '', item: ''
   }
   @ViewChild('main-ul') nameUL: ElementRef;
   
@@ -26,10 +26,11 @@ export class AppComponent {
     db.collection('items').snapshotChanges()
       .subscribe(items => {
         this.items = items.map(v => {
-          const data = v.payload.doc.data();
+          const data = v.payload.doc.data() as Item;
+          data.id = v.payload.doc.id;
+          console.log(data);
           return data;
         });
-        console.log(this.items);
       });
 
       db.collection('suggestions').valueChanges()
@@ -40,9 +41,27 @@ export class AppComponent {
   }
 
   saveData(){
-    this.itemsCollection  .add({item: 'novo', who: 'leon2'});
-    console.log(this.itemsCollection);
-    console.log(this.item);
+    if(this.item.who == undefined || this.item.who == ""){
+      alert("Informe quem vai presentear.");
+      return;
+    }
+
+    if(document.querySelectorAll("li.selected").length == 0){
+      alert("Nâo foi selecionado nenhum presente, tá certo isso?");
+      return;
+    }
+
+    //const gifts = document.querySelectorAll("li.selected");
+    
+    for (let i = 0; i < document.querySelectorAll("li.selected").length; i++) {
+      const gift = <HTMLInputElement>document.querySelectorAll("li.selected")[i]
+
+      this.item.item = gift.innerText;
+  
+      this.itemsCollection.add(this.item);
+    };
+
+    //console.log(this.itemsCollection.doc('Sso2eaEvSk8QQTpe31wp').delete().then(x => {console.log("deu certo")}).catch(o => {console.log("deu bo")}));
   }
 
   SetBorder(value){

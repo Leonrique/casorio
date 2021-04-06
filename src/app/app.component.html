@@ -6,81 +6,130 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="bg" >
-    <header>
-      <h1>Gabriel e Aline</h1>
-      <p>Obrigado por ter acessado a nossa página! Se você chegou até aqui, temos a certeza que você pensa em nós com carinho!
-        Criamos abaixo uma lista de presentes, baseado no que ainda não temos para a nossa casa, mas a escolha de um desses itens ou do que achar melhor, fica a seu critério!
+  <header class="alinhar">
+    <h1>Gabriel e Aline</h1>
+    <p style="padding: 10px; font-size: large;">
+      Obrigado por ter acessado a nossa página! Se você chegou até aqui, temos a certeza que você pensa em nós com carinho!
+      Criamos abaixo uma lista de presentes, baseado no que ainda não temos para a nossa casa, mas a escolha de um desses itens ou do que achar melhor, fica a seu critério!
 
-        Estamos muito felizes por esse momento em nossas vidas e, desejamos a você e sua família muita paz, amor, saúde e sabedoria sempre! Que Deus esteja sempre no meio de todos nós!
+      Estamos muito felizes por esse momento em nossas vidas e, desejamos a você e sua família muita paz, amor, saúde e sabedoria sempre! Que Deus esteja sempre no meio de todos nós!
+      
+      Gabriel e Aline</p>
+    <img src="../assets/GabrielMeninoComAparelho.jpg" class="main-pic" alt="">
+  </header>
+
+  
+    
+  <!-- <section class="container alinhar">
+    <div class="row centered-form center-block ">
+      <div class="container col-md-6 col-md-offset-3">
         
-        Gabriel e Aline</p>
-      <img src="../assets/GabrielMeninoComAparelho.jpg" class="main-pic" alt="">
-    </header>
-
-    <div class="container">
-      <section>
-        <div class="row centered-form center-block ">
-          <div class="container col-md-6 col-md-offset-3">
-            <form action="/result" class="form-inline" method="get" role="form">
-              <div class="row">
-                 <div class="form-group col-md-6">
-                   <label class="control-label" for="quem">Quem vai presentear:</label>
-                   <input class="form-control" name="quem" type="text" [(ngModel)]="item.who" name="quem" />
-                 </div>
-                 <div class="form-group col-md-4">
-                   <label class="control-label" for="presente">O que vai presentear:</label>
-                     <select class="form-control selectpicker" [(ngModel)]="item.item" name="item">
-                       <option value="0"></option>
-                       <option *ngFor="let suggestion of suggestions" value="">{{suggestion.name}}</option>
-                     </select>
-                 </div>
-                 <div class="form-group col-md-2 align-self-end">
-                    <button class="btn btn-primary" id="btn" name="btn" type="button" (click)="saveData()">Confirmar</button>
-                 </div>
-             </div>
-           </form>    
+          <div class="row">
+              <div class="form-group col-md-6">
+                <input class="form-control" placeholder="Quem vai presentear" name="quem" type="text" [(ngModel)]="item.who" name="quem" />
+              </div>
+              <div class="form-group col-md-2">
+                <button class="btn btn-primary" id="btn" name="btn" type="button" (click)="saveData()">Confirmar</button>
+              </div>
           </div>
-        </div>
-      </section>
+        
+      </div>
     </div>
     <div *ngFor="let item of items">O {{item.who}} vai presentear com {{item.item}}</div>
-  </div>
+  </section> -->
+ 
+  <!-- <section>
+    <ul id="main-ul">
+      <li><img src="../assets/pix-gabriel.jpg" width="250" height="250"/><p>Pix</p></li>
+      <li><img src="../assets/Amassador de alho.jpg" width="250" height="250"/><p>Amassador de alho</p></li>
+      <li><img src="../assets/ap jantar.jpg" width="250" height="250" /><p>Ap. jantar</p></li>
+      <li><img src="../assets/Armário de cozinha.jpg" width="250" height="250"/><p>Armário</p></li>
+      <li><img src="../assets/batedeira.jpg" width="250" height="250" /><p>Batedeira</p></li>
+      <li><img src="../assets/botijão de gás.jpg" width="250" height="250" /><p>Botijão</p></li>
+      <li><img src="../assets/Cesta básica.jpg" width="250" height="250" /><p>Cesta</p></li>
+      <li><img src="../assets/cj facas.jpg" width="250" height="250" /><p>Facas</p></li>
+      <li><img src="../assets/Cj formas-travessas.jpg" width="250" height="250" /><p>Formas</p></li>
+      <li><img src="../assets/Edredon.jpg" width="250" height="250" /><p>Edredon</p></li>
+      <li><img src="../assets/Faqueiro.jpg" width="250" height="250" /><p>Faqueiro</p></li>
+      <li><img src="../assets/ferro de passar.jpg" width="250" height="250" /><p>Ferro</p></li>
+      <li><img src="../assets/fogão.jpg" width="250" height="250" /><p>Fogão</p></li>
+      <li><img src="../assets/Forno.jpg" width="250" height="250" /><p>Forno</p></li>
+      <li><img src="../assets/Geladeira.jpg" width="250" height="250" /><p>Geladeira</p></li>
+      <li><img src="../assets/Jg panelas.jpg" width="250" height="250" /><p>Panelas :)</p></li>
+      <li><img src="../assets/Jogo de cama.jpg" width="250" height="250" /><p>Cama</p></li>
+      <li><img src="../assets/kit limpeza.jpg" width="250" height="250" /><p>Limpeza</p></li>
+      <li><img src="../assets/Kit lixeira.jpg" width="250" height="250" /><p>Lixeira</p></li>
+      <li><img src="../assets/Kit utensílios.jpg" width="250" height="250" /><p>Utensílios</p></li>
+      <li><img src="../assets/Lavadora de roupas.jpg" width="250" height="250" /><p>Lavadora</p></li>
+      <li><img src="../assets/liquidificador.jpg" width="250" height="250" /><p>liquidificador</p></li>
+      <li><img src="../assets/Panela de pressão.jpg" width="250" height="250" /><p>Panela</p></li>
+      <li><img src="../assets/Pano de prato.jpg" width="250" height="250" /><p>Pano de prato</p></li>
+      <li><img src="../assets/porta mantimentos.jpg" width="250" height="250" /><p>P. mantimentos</p></li>
+      <li><img src="../assets/Porta temperos.jpg" width="250" height="250" /><p>Porta temperos</p></li>
+      <li><img src="../assets/Tapetes.jpg" width="250" height="250" /><p>Tapetes</p></li>
+      <li><img src="../assets/Toalha de mesa.jpg" width="250" height="250" /><p>Tolha mesa</p></li>
+      <li><img src="../assets/Toalhas.jpg" width="250" height="250" /><p>Toalhas</p></li>
+      <li><img src="../assets/Travesseiros.jpg" width="250" height="250" /><p>Travesseiros</p></li>
+      <li><img src="../assets/Tábua de passar.jpg" width="250" height="250" /><p>Tábua passar</p></li>
+      <li><img src="../assets/Tábuas de carne.jpg" width="250" height="250" /><p>Tábua carne</p></li>
+      <li><img src="../assets/Vasilhas.jpg" width="250" height="250" /><p>Vasilhas</p></li>
+    </ul>
+  </section> -->
+  
+  <section class="container">
+    <div class="row centered-form center-block">
+      <div class="col-md-12">
+        <ul id="main-ul">
+          <li><img src="../assets/pix-gabriel.jpg" width="250" height="250"/><p>Pix</p></li>
+          <li><img src="../assets/Amassador de alho.jpg" width="250" height="250"/><p>Amassador de alho</p></li>
+          <li><img src="../assets/ap jantar.jpg" width="250" height="250" /><p>Ap. jantar</p></li>
+          <li><img src="../assets/Armário de cozinha.jpg" width="250" height="250"/><p>Armário</p></li>
+          <li><img src="../assets/batedeira.jpg" width="250" height="250" /><p>Batedeira</p></li>
+          <li><img src="../assets/botijão de gás.jpg" width="250" height="250" /><p>Botijão</p></li>
+          <li><img src="../assets/Cesta básica.jpg" width="250" height="250" /><p>Cesta</p></li>
+          <li><img src="../assets/cj facas.jpg" width="250" height="250" /><p>Facas</p></li>
+          <li><img src="../assets/Cj formas-travessas.jpg" width="250" height="250" /><p>Formas</p></li>
+          <li><img src="../assets/Edredon.jpg" width="250" height="250" /><p>Edredon</p></li>
+          <li><img src="../assets/Faqueiro.jpg" width="250" height="250" /><p>Faqueiro</p></li>
+          <li><img src="../assets/ferro de passar.jpg" width="250" height="250" /><p>Ferro</p></li>
+          <li><img src="../assets/fogão.jpg" width="250" height="250" /><p>Fogão</p></li>
+          <li><img src="../assets/Forno.jpg" width="250" height="250" /><p>Forno</p></li>
+          <li><img src="../assets/Geladeira.jpg" width="250" height="250" /><p>Geladeira</p></li>
+          <li><img src="../assets/Jg panelas.jpg" width="250" height="250" /><p>Panelas :)</p></li>
+          <li><img src="../assets/Jogo de cama.jpg" width="250" height="250" /><p>Cama</p></li>
+          <li><img src="../assets/kit limpeza.jpg" width="250" height="250" /><p>Limpeza</p></li>
+          <li><img src="../assets/Kit lixeira.jpg" width="250" height="250" /><p>Lixeira</p></li>
+          <li><img src="../assets/Kit utensílios.jpg" width="250" height="250" /><p>Utensílios</p></li>
+          <li><img src="../assets/Lavadora de roupas.jpg" width="250" height="250" /><p>Lavadora</p></li>
+          <li><img src="../assets/liquidificador.jpg" width="250" height="250" /><p>liquidificador</p></li>
+          <li><img src="../assets/Panela de pressão.jpg" width="250" height="250" /><p>Panela</p></li>
+          <li><img src="../assets/Pano de prato.jpg" width="250" height="250" /><p>Pano de prato</p></li>
+          <li><img src="../assets/porta mantimentos.jpg" width="250" height="250" /><p>P. mantimentos</p></li>
+          <li><img src="../assets/Porta temperos.jpg" width="250" height="250" /><p>Porta temperos</p></li>
+          <li><img src="../assets/Tapetes.jpg" width="250" height="250" /><p>Tapetes</p></li>
+          <li><img src="../assets/Toalha de mesa.jpg" width="250" height="250" /><p>Tolha mesa</p></li>
+          <li><img src="../assets/Toalhas.jpg" width="250" height="250" /><p>Toalhas</p></li>
+          <li><img src="../assets/Travesseiros.jpg" width="250" height="250" /><p>Travesseiros</p></li>
+          <li><img src="../assets/Tábua de passar.jpg" width="250" height="250" /><p>Tábua passar</p></li>
+          <li><img src="../assets/Tábuas de carne.jpg" width="250" height="250" /><p>Tábua carne</p></li>
+          <li><img src="../assets/Vasilhas.jpg" width="250" height="250" /><p>Vasilhas</p></li>
+        </ul>
+      </div>
+    </div>
 
-  <ul id="main-ul">
-    <li><img src="../assets/pix-gabriel.jpg" width="250" height="250"/><p>Pix</p></li>
-    <li><img src="../assets/Amassador de alho.jpg" width="250" height="250"/><p>Amassador de alho</p></li>
-    <li><img src="../assets/ap jantar.jpg" width="250" height="250" /><p>Ap. jantar</p></li>
-    <li><img src="../assets/Armário de cozinha.jpg" width="250" height="250"/><p>Armário</p></li>
-    <li><img src="../assets/batedeira.jpg" width="250" height="250" /><p>Batedeira</p></li>
-    <li><img src="../assets/botijão de gás.jpg" width="250" height="250" /><p>Botijão</p></li>
-    <li><img src="../assets/Cesta básica.jpg" width="250" height="250" /><p>Cesta</p></li>
-    <li><img src="../assets/cj facas.jpg" width="250" height="250" /><p>Facas</p></li>
-    <li><img src="../assets/Cj formas-travessas.jpg" width="250" height="250" /><p>Formas</p></li>
-    <li><img src="../assets/Edredon.jpg" width="250" height="250" /><p>Edredon</p></li>
-    <li><img src="../assets/Faqueiro.jpg" width="250" height="250" /><p>Faqueiro</p></li>
-    <li><img src="../assets/ferro de passar.jpg" width="250" height="250" /><p>Ferro</p></li>
-    <li><img src="../assets/fogão.jpg" width="250" height="250" /><p>Fogão</p></li>
-    <li><img src="../assets/Forno.jpg" width="250" height="250" /><p>Forno</p></li>
-    <li><img src="../assets/Geladeira.jpg" width="250" height="250" /><p>Geladeira</p></li>
-    <li><img src="../assets/Jg panelas.jpg" width="250" height="250" /><p>Panelas :)</p></li>
-    <li><img src="../assets/Jogo de cama.jpg" width="250" height="250" /><p>Cama</p></li>
-    <li><img src="../assets/kit limpeza.jpg" width="250" height="250" /><p>Limpeza</p></li>
-    <li><img src="../assets/Kit lixeira.jpg" width="250" height="250" /><p>Lixeira</p></li>
-    <li><img src="../assets/Kit utensílios.jpg" width="250" height="250" /><p>Utensílios</p></li>
-    <li><img src="../assets/Lavadora de roupas.jpg" width="250" height="250" /><p>Lavadora</p></li>
-    <li><img src="../assets/liquidificador.jpg" width="250" height="250" /><p>liquidificador</p></li>
-    <li><img src="../assets/Panela de pressão.jpg" width="250" height="250" /><p>Panela</p></li>
-    <li><img src="../assets/Pano de prato.jpg" width="250" height="250" /><p>Pano de prato</p></li>
-    <li><img src="../assets/porta mantimentos.jpg" width="250" height="250" /><p>P. mantimentos</p></li>
-    <li><img src="../assets/Porta temperos.jpg" width="250" height="250" /><p>Porta temperos</p></li>
-    <li><img src="../assets/Tapetes.jpg" width="250" height="250" /><p>Tapetes</p></li>
-    <li><img src="../assets/Toalha de mesa.jpg" width="250" height="250" /><p>Tolha mesa</p></li>
-    <li><img src="../assets/Toalhas.jpg" width="250" height="250" /><p>Toalhas</p></li>
-    <li><img src="../assets/Travesseiros.jpg" width="250" height="250" /><p>Travesseiros</p></li>
-    <li><img src="../assets/Tábua de passar.jpg" width="250" height="250" /><p>Tábua passar</p></li>
-    <li><img src="../assets/Tábuas de carne.jpg" width="250" height="250" /><p>Tábua carne</p></li>
-    <li><img src="../assets/Vasilhas.jpg" width="250" height="250" /><p>Vasilhas</p></li>
-  </ul>
+    <div class="row centered-form center-block ">
+      <div class="container col-md-6 col-md-offset-3">
+          <div class="row">
+              <div class="form-group col-md-6">
+                <input class="form-control" placeholder="Quem vai presentear" name="quem" type="text" [(ngModel)]="item.who" name="quem" />
+              </div>
+              <div class="form-group col-md-2">
+                <button class="btn btn-primary" id="btn" name="btn" type="button" (click)="saveData()">Confirmar</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div *ngFor="let item of items">O {{item.who}} vai presentear com {{item.item}}</div>
+  </section>
 </body>
 </html>
