@@ -64,7 +64,7 @@ ul li img{
 ul {
   position: relative;
   margin: 50px auto;
-  width: 60%;
+  width: 100%;
   padding: 0;
   list-style: none;
   text-align: center;
@@ -135,6 +135,13 @@ li {
   width: 125px;
   height: 125px;
   float: left;
+}
+
+li p{
+  position: absolute;
+  padding-top: 90px;
+  padding-left: 10px;
+  font-size: 10px;
 }
 
 li:before {
