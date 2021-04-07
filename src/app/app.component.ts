@@ -9,14 +9,17 @@ import {Item } from '../app/models/Item';
 })
 
 export class AppComponent {
-  items: any[];
+  items: Item[];
   suggestions: any[];
   db: AngularFirestore;
   itemsCollection: AngularFirestoreCollection<Item>;
   
   item: Item ={
-    id: '', who: '', item: ''
+    idLocal: 0, id: '', who: '', item: ''
   }
+
+  public edited: boolean = false;
+
   @ViewChild('main-ul') nameUL: ElementRef;
   
   constructor(db: AngularFirestore){
@@ -28,26 +31,31 @@ export class AppComponent {
         this.items = items.map(v => {
           const data = v.payload.doc.data() as Item;
           data.id = v.payload.doc.id;
-          console.log(data);
           return data;
         });
+
+        this.items = this.items.sort(function(a, b){
+          return a.idLocal < b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
+        })
+
+        //console.log(this.items);
+        //window.scrollTo(0, document.body.scrollHeight);
       });
 
       db.collection('suggestions').valueChanges()
       .subscribe(suggestions => {
         this.suggestions = suggestions;
-        console.log(this.suggestions);
       });
   }
 
   saveData(){
     if(this.item.who == undefined || this.item.who == ""){
-      alert("Informe quem vai presentear.");
+      alert("Informe seu nome.");
       return;
     }
 
     if(document.querySelectorAll("li.selected").length == 0){
-      alert("Nâo foi selecionado nenhum presente, tá certo isso?");
+      alert("Ops, nenhum presente foi selecionado, neste caso não temos como confirmar.");
       return;
     }
 
@@ -57,17 +65,33 @@ export class AppComponent {
       const gift = <HTMLInputElement>document.querySelectorAll("li.selected")[i]
 
       this.item.item = gift.innerText;
-  
+      this.item.idLocal = this.items.length+1
+
       this.itemsCollection.add(this.item);
     };
+    
+    this.edited = true;
 
-    //console.log(this.itemsCollection.doc('Sso2eaEvSk8QQTpe31wp').delete().then(x => {console.log("deu certo")}).catch(o => {console.log("deu bo")}));
+    setTimeout(function() {
+        this.edited = false;
+        //console.log(this.edited);
+    }.bind(this), 10000);
+
+    //alert(`Muito obrigado ${ this.item.who }!`)
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+  resetList(){
+    this.items.forEach(item => {
+      this.itemsCollection.doc(item.id)
+      .delete()
+      .then(x => {console.log("deu certo")})
+      .catch(o => {console.log("deu bo")});
+    });
   }
 
   SetBorder(value){
-    // console.log(value);
     value.srcElement.classList.toggle('selected')
-    // document.querySelector("#main-ul").classList.add('selected');
   }
 
   ngOnInit(): void {
