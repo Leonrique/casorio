@@ -97,7 +97,7 @@
       </div>
     </div> -->
 
-    <div style=" width: 50%; margin: auto; display: block; margin-top: 100px; font-family: montserrat; font-weight: bold; font-size: 20px;">
+    <div style=" width: 100%; margin: auto; display: block; margin-top: 100px; font-family: montserrat; font-weight: bold; font-size: 20px;">
       <div class="input-group">
         <input class="form-control" style="height: 40px;" placeholder="Seu nome" name="quem" type="text" [(ngModel)]="item.who" name="quem" />
         <button class="btn btn-primary" id="btnConfirmar" name="btn" type="button" (click)="saveData()">Confirmar</button>
@@ -110,7 +110,7 @@
 
     <h2 id="listaItens" *ngFor="let item of items">{{item.who}} vai presentear com {{item.item}}</h2>
 
-    <div style=" width: 50%; margin: auto; display: block; margin-top: 100px; font-family: montserrat; font-weight: bold; font-size: 20px;">
+    <div style=" width: 100%; margin: auto; display: block; margin-top: 100px; font-family: montserrat; font-weight: bold; font-size: 20px;">
       <p id="felicitacao" style="margin-bottom: 5px">Deixe aqui suas felicitações ao casal</p>
       <textarea [(ngModel)] = "testimony.content" placeholder="Escreva sua mensagem" style="resize: none; margin-bottom: 5px; font-size: 20px;" class="form-control" name="" id="" cols="5" rows="2"></textarea>
       <div class="input-group">
