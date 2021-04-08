@@ -1,6 +1,8 @@
+import { Testimony } from './Models/Testimony';
 import { Component, ElementRef, ViewChild  } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import {Item } from '../app/models/Item';
+import { Item } from './Models/Item';
+
 
 @Component({
   selector: 'app-root',
@@ -10,12 +12,18 @@ import {Item } from '../app/models/Item';
 
 export class AppComponent {
   items: Item[];
+  testimonies: Testimony[];
   suggestions: any[];
   db: AngularFirestore;
   itemsCollection: AngularFirestoreCollection<Item>;
-  
+  testimoniesCollection: AngularFirestoreCollection<Testimony>;
+
   item: Item ={
     idLocal: 0, id: '', who: '', item: ''
+  }
+
+  testimony: Testimony ={
+    idLocal: 0, id: '', content: '', who: ''
   }
 
   public edited: boolean = false;
@@ -25,6 +33,7 @@ export class AppComponent {
   constructor(db: AngularFirestore){
     
     this.itemsCollection = db.collection('items');
+    this.testimoniesCollection = db.collection('testimonies');
 
     db.collection('items').snapshotChanges()
       .subscribe(items => {
@@ -37,15 +46,27 @@ export class AppComponent {
         this.items = this.items.sort(function(a, b){
           return a.idLocal < b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
         })
+    });
 
-        //console.log(this.items);
-        //window.scrollTo(0, document.body.scrollHeight);
-      });
-
-      db.collection('suggestions').valueChanges()
+    db.collection('suggestions').valueChanges()
       .subscribe(suggestions => {
         this.suggestions = suggestions;
-      });
+    });
+
+    db.collection('testimonies').snapshotChanges()
+      .subscribe(testimonies => {
+        this.testimonies = testimonies.map(v => {
+          const data = v.payload.doc.data() as Testimony;
+          data.id = v.payload.doc.id;
+          return data;
+        });
+
+        this.testimonies = this.testimonies.sort(function(a, b){
+          return a.idLocal < b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
+        })
+
+        console.log(this.testimonies);
+    });
   }
 
   saveData(){
@@ -59,8 +80,6 @@ export class AppComponent {
       return;
     }
 
-    //const gifts = document.querySelectorAll("li.selected");
-    
     for (let i = 0; i < document.querySelectorAll("li.selected").length; i++) {
       const gift = <HTMLInputElement>document.querySelectorAll("li.selected")[i]
 
@@ -74,12 +93,38 @@ export class AppComponent {
 
     setTimeout(function() {
         this.edited = false;
-        //console.log(this.edited);
     }.bind(this), 10000);
 
-    //alert(`Muito obrigado ${ this.item.who }!`)
     window.scrollTo(0, document.body.scrollHeight);
-}
+    this.removeAllSelections();
+  }
+
+  saveTestimony(){
+    if(this.testimony.who == undefined || this.testimony.who == ""){
+      alert("Informe seu nome.");
+      return;
+    }
+
+    if(this.testimony.content == undefined || this.testimony.content == ""){
+      alert("Escreva sua mensagem.");
+      return;
+    }
+
+    this.testimony.idLocal = this.testimonies.length+1
+    this.testimoniesCollection.add(this.testimony);
+    this.testimony.content = '';
+    this.testimony.who = '';
+  }
+
+  dataAtualFormatada(){
+    var data = new Date(),
+        dia  = data.getDate().toString(),
+        diaF = (dia.length == 1) ? '0'+dia : dia,
+        mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+        mesF = (mes.length == 1) ? '0'+mes : mes,
+        anoF = data.getFullYear();
+    return diaF+"/"+mesF+"/"+anoF;
+  }
 
   resetList(){
     this.items.forEach(item => {
@@ -94,11 +139,19 @@ export class AppComponent {
     value.srcElement.classList.toggle('selected')
   }
 
-  ngOnInit(): void {
-    const cbox = document.querySelectorAll("li");
+  removeAllSelections(){
+    const images = document.querySelectorAll("li.selected");
 
-    for (let i = 0; i < cbox.length; i++) {
-        cbox[i].addEventListener("click", this.SetBorder);
+    for (let i = 0; i < images.length; i++) {
+      images[i].classList.remove('selected');
+    }
+  }
+
+  ngOnInit(): void {
+    const images = document.querySelectorAll("li");
+
+    for (let i = 0; i < images.length; i++) {
+      images[i].addEventListener("click", this.SetBorder);
     }
   }
 }

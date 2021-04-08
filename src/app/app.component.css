@@ -34,7 +34,7 @@ body {
   margin: 0 auto;
 }
 
-.alinhar > p, h1{
+.alinhar > p, h1, #felicitacao{
     font-size: 5.25rem;
     /* font-style: italic; */
     font-weight: bold;
@@ -53,23 +53,27 @@ h2 {
   color: rgb(54, 6, 6);
 }
 
-.alinhar > p {
+.alinhar > p, #felicitacao {
   padding: 10px; 
-  font-size: 35px;
+  font-size: 42px;
   font-family: 'dancing';
 }
 
-#btnConfirmar, #btnLimpar{
+#btnConfirmar, #btnLimpar, #btnConfirmarDepoimento{
   background-color: brown;
   width: 100px;
   height: 40px;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
-#listaItens{
+#listaItens, #listaDepoimentos{
   margin: 0 auto;
   text-align: center; 
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#listaDepoimentos{
+  margin-top: 35px;
 }
 
 .main-pic{
@@ -98,7 +102,7 @@ ul {
   /* padding: 0; */
   list-style: none;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 900;
   font-size: 20px;
   line-height: 40px;
@@ -152,7 +156,7 @@ li {
   margin: 10px;
   width: 200px;
   height: 200px;
-  float: left;
+  display: inline-block;
   color: brown;
 }
 
