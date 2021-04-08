@@ -1,7 +1,7 @@
-import { Testimony } from './Models/Testimony';
+import { Testimony } from '../app/models/Testimony';
 import { Component, ElementRef, ViewChild  } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Item } from './Models/Item';
+import {Item } from '../app/models/Item';
 
 
 @Component({

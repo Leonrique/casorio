@@ -1,6 +1,6 @@
 export interface Testimony{
     id:string;
     idLocal: number;
-    who: string;
+    who?: string;
     content?: string;
 }
