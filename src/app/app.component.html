@@ -14,9 +14,12 @@
     <h1>Gabriel e Aline</h1>
     <p>
       Obrigado por ter acessado a nossa página! Se você chegou até aqui, temos a certeza que você pensa em nós com carinho!
-      Criamos abaixo uma lista de presentes, baseado no que ainda não temos para a nossa casa, mas a escolha de um desses itens ou do que achar melhor, fica a seu critério!
       Estamos muito felizes por esse momento em nossas vidas e, desejamos a você e sua família muita paz, amor, saúde e sabedoria sempre!
       Que Deus esteja sempre no meio de todos nós!</p>  
+    <p>Como estamos em meio a um período complicado nessa pandemia, não poderemos nos reunir para festejar. 
+      Criamos abaixo uma lista de presentes, baseada no que ainda não temos para a nossa casa, mas a escolha de um desses itens ou do que achar melhor, fica a seu critério!
+      As imagens são somente para te dar uma ideia, não temos preferência por marcas ou modelos, tá bom?
+    </p>  
   </header>
 
   <section class="container">
@@ -73,9 +76,9 @@
     
     <div *ngIf="edited" class="alert alert-success" role="alert">
       <h4 class="alert-heading">Muito obrigado {{item.who}}!  Temos um espaço abaixo, caso você queira deixar uma mensagem ao casal.</h4>
-      <!-- <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+      <p>Por favor, entre em contato com a gente pelo whatsapp para a entrega dos presentes.</p>
       <hr>
-      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+      <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
     </div>
 
     <div class="row centered-form center-block ">
@@ -87,9 +90,9 @@
               <div class="form-group col-md-2">
                 <button class="btn btn-primary" id="btnConfirmar" name="btn" type="button" (click)="saveData()">Confirmar</button>
               </div>
-              <div class="form-group col-md-2">
+              <!-- <div class="form-group col-md-2">
                 <button class="btn btn-primary" id="btnLimpar" name="btn" type="button" (click)="resetList()">Limpar</button>
-              </div>
+              </div> -->
           </div>
       </div>
     </div>
@@ -105,12 +108,12 @@
     <div style=" width: 50%; margin: auto; display: block; margin-top: 100px; font-family: montserrat; font-weight: bold; font-size: 20px;">
       <p id="felicitacao" style="margin-bottom: 5px">Deixe aqui suas felicitações ao casal</p>
       <textarea [(ngModel)] = "testimony.content" placeholder="Escreva sua mensagem" style="resize: none; margin-bottom: 5px; font-size: 20px;" class="form-control" name="" id="" cols="5" rows="2"></textarea>
-      <div>
-        <input [(ngModel)] = "testimony.who" class="input" type="text" placeholder="Seu nome">        
+      <div class="input-group">
+        <input [(ngModel)] = "testimony.who" class="form-control" style="height: 40px;" type="text" placeholder="Seu nome">        
         <button id="btnConfirmarDepoimento" class="btn btn-primary" style="float: right; margin-bottom: 15px;" 
           (click)="saveTestimony()">Felicitar</button>
       </div>
-
+      
       <h2 id="listaDepoimentos" *ngFor="let testimony of testimonies">
         {{testimony.who}} <span style="font-size: 15px;">({{dataAtualFormatada()}})</span>: {{testimony.content}}
       </h2>
