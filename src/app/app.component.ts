@@ -62,7 +62,7 @@ export class AppComponent {
         });
 
         this.testimonies = this.testimonies.sort(function(a, b){
-          return a.idLocal < b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
+          return a.idLocal > b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
         })
 
         console.log(this.testimonies);
