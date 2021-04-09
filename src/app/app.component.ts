@@ -111,7 +111,9 @@ export class AppComponent {
     }
 
     this.testimony.idLocal = this.testimonies.length+1
+    this.testimony.date = this.dataAtualFormatada();
     this.testimoniesCollection.add(this.testimony);
+    
     this.testimony.content = '';
     this.testimony.who = '';
   }

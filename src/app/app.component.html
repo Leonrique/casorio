@@ -48,7 +48,6 @@
           <li><img src="../assets/microondas.jpg"  /><p>Microondas</p></li>
           <li><img src="../assets/Lavadora de roupas.jpg"  /><p>Lavadora</p></li>
           <li><img src="../assets/liquidificador.jpg"  /><p>Liquidificador</p></li>
-          <li><img src="../assets/Panela de pressão.jpg"  /><p>Panela</p></li>
           <li><img src="../assets/Pano de prato.jpg"  /><p>Pano de prato</p></li>
           <li><img src="../assets/porta mantimentos.jpg"  /><p>Porta mantimentos</p></li>
           <li><img src="../assets/Porta temperos.jpg"  /><p>Porta temperos</p></li>
@@ -62,7 +61,7 @@
           <li><img src="../assets/guarda-roupa.jpg"  /><p>Guarda roupa</p></li>
           <li><img src="../assets/jogo de copos.jpg"  /><p>Jogo de copos</p></li>
           <li><img src="../assets/mesa.jpg"/><p>Mesa</p></li>
-          <li><img src="../assets/multiprocessador.jpg"  /><p>Multiprocessador</p></li>
+          <li><img src="../assets/Processador.jpg"  /><p>Processador</p></li>
           <li><img src="../assets/rack.jpg"/><p>Rack</p></li>
           <li><img src="../assets/sanduicheira.jpg"  /><p>Sanduicheira</p></li>
           <li><img src="../assets/sofa.jpg"/><p>Sofá</p></li>
@@ -70,6 +69,12 @@
           <li><img src="../assets/utensilios.jpg"  /><p>Utensílios</p></li>
           <li><img src="../assets/Panela de pressão.jpg"  /><p>Panela de pressão</p></li>
           <li><img src="../assets/Cj formas-travessas.jpg"  /><p>Formas e travessas</p></li>
+          <li><img src="../assets/Cabides.jpg"  /><p>Cabides</p></li>
+          <li><img src="../assets/Frigideiras.jpg"  /><p>Frigideiras</p></li>
+          <li><img src="../assets/Cuscuzeira.jpg"  /><p>Cuscuzeira</p></li>
+          <li><img src="../assets/Escorredor vasilhas.jpg"  /><p>Escorredor de vasilhas</p></li>
+          <li><img src="../assets/Escorredor.jpg"  /><p>Escorredor de macarrão</p></li>
+          <li><img src="../assets/Garrafa café.jpg"  /><p>Garrafa de café</p></li>
         </ul>
       </div>
     </div>
@@ -119,7 +124,7 @@
       </div>
       
       <h2 id="listaDepoimentos" *ngFor="let testimony of testimonies">
-        {{testimony.who}} <span style="font-size: 15px;">({{dataAtualFormatada()}})</span>: {{testimony.content}}
+        {{testimony.who}} <span style="font-size: 15px;">({{testimony.date}})</span>: {{testimony.content}}
       </h2>
     </div>
   </section>
