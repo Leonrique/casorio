@@ -44,7 +44,7 @@ export class AppComponent {
         });
 
         this.items = this.items.sort(function(a, b){
-          return a.idLocal < b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
+          return a.idLocal > b.idLocal ? -1 : a.idLocal > b.idLocal ? 1 : 0;
         })
     });
 
